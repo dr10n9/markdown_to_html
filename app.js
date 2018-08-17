@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.post('/convert', (req, res) => {
     console.log(req.body);
     if(req.body.data != undefined && req.body.data != null){
-        console.log(converter.makeHtml(req.body.data));
+        return res.send(converter.makeHtml(req.body.data));
     } else {
         return res.send({
             Error: 'No data'
