@@ -2,6 +2,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const showdown = require('showdown');
 const converter = new showdown.Converter();
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -23,7 +24,7 @@ app.post('/convert', (req, res) => {
     }
 })
 
-app.listen(8080, (err) => {
+app.listen(port, (err) => {
     if(err) return 'err';
     console.log('listening');
 });
